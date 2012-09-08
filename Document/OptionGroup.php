@@ -7,7 +7,7 @@
  */
 namespace Vespolina\ProductBundle\Document;
 
-use Vespolina\ProductBundle\Model\Option\OptionGroup as AbstractOptionGroup;
+use Vespolina\Entity\Product\OptionGroup as AbstractOptionGroup;
 /**
  * @author Richard D Shank <develop@zestic.com>
  */

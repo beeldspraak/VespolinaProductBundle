@@ -10,7 +10,7 @@ namespace Vespolina\ProductBundle\Document;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-use Vespolina\ProductBundle\Model\Product as AbstractProduct;
+use Vespolina\Entity\Product\Product as AbstractProduct;
 /**
  * @author Richard Shank <develop@zestic.com>
  */

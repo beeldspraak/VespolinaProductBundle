@@ -7,7 +7,7 @@
  */
 namespace Vespolina\ProductBundle\Document;
 
-use Vespolina\ProductBundle\Model\Identifier\SKUIdentifier as BaseSKUIdentifier;
+use Vespolina\Entity\Identifier\SKUIdentifier as BaseSKUIdentifier;
 /**
  * @author Richard D Shank <develop@zestic.com>
  */

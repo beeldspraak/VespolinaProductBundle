@@ -10,8 +10,8 @@ namespace Vespolina\ProductBundle\Document;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-use Vespolina\ProductBundle\Model\Asset as AbstractAsset;
-use Vespolina\ProductBundle\Model\AssetInterface;
+use Vespolina\Entity\Asset\Asset as AbstractAsset;
+use Vespolina\Entity\Asset\AssetInterface;
 /**
  * @author Myke Hines <myke@webhines.com>
  */

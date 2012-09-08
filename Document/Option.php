@@ -7,7 +7,7 @@
  */
 namespace Vespolina\ProductBundle\Document;
 
-use Vespolina\ProductBundle\Model\Option\Option as AbstractOption;
+use Vespolina\Entity\Product\Option as AbstractOption;
 /**
  * @author Richard D Shank <develop@zestic.com>
  */
