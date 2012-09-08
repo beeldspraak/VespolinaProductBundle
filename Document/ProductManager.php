@@ -10,29 +10,31 @@ namespace Vespolina\ProductBundle\Document;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Component\DependencyInjection\Container;
 
-use Vespolina\Entity\ProductInterface;
-use Vespolina\ProductBundle\Model\ProductManager as BaseProductManager;
+use Vespolina\Entity\Product\ProductInterface;
+use Vespolina\Produt\Manager\ProductManager as BaseProductManager;
 /**
  * @author Richard Shank <develop@zestic.com>
  */
 class ProductManager extends BaseProductManager
 {
     protected $dm;
-    protected $productClass;
+    protected $merchandiseRepo;
     protected $productRepo;
 
-    public function __construct(DocumentManager $dm, $productClass, $identifiers, $identifierSetClass, $assetManager)
+    public function __construct(DocumentManager $dm, $productClass, $merchandiseClass, $identifiers, $identifierSetClass, $assetManager)
     {
         $this->dm = $dm;
         $this->productClass = $productClass;
+        $this->merchandiseRepo = $this->dm->getRepository($merchandiseClass);
         $this->productRepo = $this->dm->getRepository($productClass);
-        parent::__construct($identifiers, $identifierSetClass, $assetManager);
+
+        parent::__construct($identifiers, $identifierSetClass, $merchandiseClass, $assetManager);
     }
 
     /**
      * @inheritdoc
      */
-    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    protected function doFindBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
         return $this->productRepo->findBy($criteria, $orderBy, $limit, $offset);
     }
@@ -40,7 +42,7 @@ class ProductManager extends BaseProductManager
     /**
      * @inheritdoc
      */
-    public function findProductById($id)
+    protected function doFindProductById($id)
     {
         if ($product = $this->productRepo->find($id)) {
             $rp = new \ReflectionProperty($product, 'identifierSetClass');
@@ -56,7 +58,7 @@ class ProductManager extends BaseProductManager
     /**
      * @inheritdoc
      */
-    public function findProductByIdentifier($name, $code)
+    protected function doFindProductByIdentifier($name, $code)
     {
 
     }
@@ -64,7 +66,7 @@ class ProductManager extends BaseProductManager
     /**
      * @inheritdoc
      */
-    public function findProductByName($name)
+    protected function doFindProductByName($name)
     {
         $products = array();
         if (!$results = $this->productRepo->findBy(array('name' => $name))) {
@@ -90,7 +92,7 @@ class ProductManager extends BaseProductManager
     /**
      * @inheritdoc
      */
-    public function findProductBySlug($slug)
+    protected function doFindProductBySlug($slug)
     {
         if ($product = $this->productRepo->findOneBy(array('slug' => $slug))) {
 
@@ -104,10 +106,12 @@ class ProductManager extends BaseProductManager
         return null;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function updateProduct(ProductInterface $product, $andFlush = true)
+    protected function doGetMerchandise(array $constraints = null)
+    {
+
+    }
+
+    protected function doUpdateProduct(ProductInterface $product, $andFlush = true)
     {
         $this->dm->persist($product);
         if ($andFlush) {

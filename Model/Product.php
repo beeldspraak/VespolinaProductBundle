@@ -13,8 +13,8 @@ use Doctrine\Common\Collections\Collection;
 
 use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
 
-use Vespolina\Entity\FeatureInterface;
-use Vespolina\Entity\Product as BaseProduct;
+use Vespolina\Entity\Product\FeatureInterface;
+use Vespolina\Entity\Product\Product as BaseProduct;
 use Vespolina\ProductBundle\Model\Identifier\IdentifierInterface;
 use Vespolina\ProductBundle\Model\Identifier\ProductIdentifierSetInterface;
 use Vespolina\ProductBundle\Model\Option\OptionInterface;
@@ -26,78 +26,9 @@ use Vespolina\ProductBundle\Model\Option\OptionGroupInterface;
  */
 abstract class Product extends BaseProduct
 {
-    const PHYSICAL      = 1;
-    const UNIQUE        = 2;
-    const DOWNLOAD      = 4;
-    const TIME          = 8;
-    const SERVICE       = 16;
-
-    protected $createdAt;
-    protected $description;
-    protected $name;
     protected $options;
-    protected $slug;
     protected $type;
-    protected $assets;
     protected $updateAt;
-
-    /**
-     * @inheritdoc
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function addFeature(FeatureInterface $feature)
-    {
-        $this->features[] = $feature;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setFeatures($features)
-    {
-        $this->features = array();
-        foreach($features as $feature) {
-            $this->addFeature($feature);
-        }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getFeatures()
-    {
-        return $this->features;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getFeature($type)
-    {
-        foreach ($this->features as $feature) {
-            if ($feature->getType() == $type) {
-
-                return $feature;
-            }
-        }
-
-        return null;
-    }
 
     /**
      * @inheritdoc
