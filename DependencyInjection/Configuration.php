@@ -149,6 +149,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('product_manager')
                     ->children()
+                        ->scalarNode('class')->end()
                         ->arrayNode('identifiers')
                             ->useAttributeAsKey('name')
                             ->prototype('scalar')
