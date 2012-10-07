@@ -9,7 +9,6 @@ namespace Vespolina\ProductBundle\Model\Identifier;
 
 use Vespolina\Entity\Identifier\IdentifierInterface;
 use Vespolina\ProductBundle\Model\Identifier\ProductIdentifierSetInterface;
-use Vespolina\Entity\Identifier\IdentifierInterface;
 
 /**
  * @author Richard D Shank <develop@zestic.com>
