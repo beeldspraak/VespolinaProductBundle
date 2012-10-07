@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 use Vespolina\Entity\Product\Product as AbstractProduct;
+
 /**
  * @author Richard Shank <develop@zestic.com>
  */
