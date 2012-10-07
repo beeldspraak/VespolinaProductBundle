@@ -8,8 +8,7 @@
 namespace Vespolina\ProductBundle\Model\Identifier;
 
 use Doctrine\Common\Collections\ArrayCollection;
-
-use Vespolina\ProductBundle\Model\Identifier\IdentifierInterface;
+use Vespolina\Entity\Identifier\IdentifierInterface;
 use Vespolina\ProductBundle\Model\Identifier\ProductIdentifierSetInterface;
 
 /**
