@@ -29,10 +29,11 @@
         </service>
 
         <service id="vespolina.product_manager" alias="vespolina.product.product_manager" />
-
+<!--
         <service id="vespolina.product.admin_manager" class="%vespolina.product.admin_manager.class%">
             <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
             <argument>%vespolina.product.model.configured_option_group.class%</argument>
         </service>
+-->
     </services>
 </container>
