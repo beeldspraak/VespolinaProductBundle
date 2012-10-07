@@ -11,7 +11,7 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Component\DependencyInjection\Container;
 
 use Vespolina\Entity\Product\ProductInterface;
-use Vespolina\Produt\Manager\ProductManager as BaseProductManager;
+use Vespolina\Product\Manager\ProductManager as BaseProductManager;
 /**
  * @author Richard Shank <develop@zestic.com>
  */

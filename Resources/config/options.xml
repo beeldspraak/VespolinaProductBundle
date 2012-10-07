@@ -50,10 +50,12 @@
             <argument key="data_class">%vespolina.configured_option.form.model.data_class.class%</argument>
             <argument key="name">%vespolina.configured_option.form.name%</argument>
         </service>
+<!--
         <service id="vespolina.option_group.form.handler" class="%vespolina.option_group.form.handler.class%" scope="request">
             <argument type="service" id="vespolina.configured_option_group.form" />
             <argument type="service" id="request" />
             <argument type="service" id="vespolina.product.admin_manager" />
         </service>
+-->
     </services>
 </container>
