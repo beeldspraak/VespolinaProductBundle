@@ -48,13 +48,12 @@ class AssetManager
      * Creates an asset and links to a product
      * $product must be persisted before this action is executed
      */
-    public function createAsset(ProductInterface $product, $fileLocation, $type)
+    public function createAsset($fileLocation, $type)
     {
         $baseClass = $this->assetModelClass;
         $asset = new $baseClass;
         $asset->setType($type);
-        $asset->setFileName($fileLocation);
-        $asset->setProduct($product);
+        $asset->setSrc($fileLocation);
 
         $this->updateasset($asset, true);
         return $asset;

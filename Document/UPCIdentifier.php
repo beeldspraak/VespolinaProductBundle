@@ -8,6 +8,7 @@
 namespace Vespolina\ProductBundle\Document;
 
 use Vespolina\Entity\Identifier\UPCIdentifier as BaseUPCIdentifier;
+
 /**
  * @author Richard D Shank <develop@zestic.com>
  */

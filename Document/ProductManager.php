@@ -21,20 +21,25 @@ class ProductManager extends BaseProductManager
     protected $merchandiseRepo;
     protected $productRepo;
 
-    public function __construct(DocumentManager $dm, $productClass, $merchandiseClass, $identifiers, $identifierSetClass, $assetManager)
+    public function __construct(DocumentManager $dm, $productClass, $merchandiseClass, $identifiers, $identifierSetClass)
     {
         $this->dm = $dm;
         $this->productClass = $productClass;
         $this->merchandiseRepo = $this->dm->getRepository($merchandiseClass);
         $this->productRepo = $this->dm->getRepository($productClass);
 
-        parent::__construct($identifiers, $identifierSetClass, $merchandiseClass, $assetManager);
+        parent::__construct($identifiers, $identifierSetClass, $merchandiseClass);
     }
 
     /**
      * @inheritdoc
      */
     protected function doFindBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    {
+        return $this->productRepo->findBy($criteria, $orderBy, $limit, $offset);
+    }
+
+    protected function doFindMerchandiseBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
         return $this->productRepo->findBy($criteria, $orderBy, $limit, $offset);
     }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                        http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
+
+    <document name="Vespolina\ProductBundle\Document\Merchandise" collection="vespolina_merchandise">
+        <field name="id" id="true" />
+
+        <field name="active" type="boolean" />
+        <field name="createdAt" fieldName="createdAt" type="date" />
+        <field name="updatedAt" fieldName="updatedAt" type="date" />
+
+        <embed-many fieldName="assets"
+                    field="assets"
+                    target-document="Vespolina\ProductBundle\Document\Asset"
+                />
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="incrementCreatedAt" />
+            <lifecycle-callback type="preUpdate" method="incrementUpdatedAt" />
+        </lifecycle-callbacks>
+
+    </document>
+
+</doctrine-mongo-mapping>
