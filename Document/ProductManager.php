@@ -114,4 +114,10 @@ class ProductManager extends BaseProductManager
             $this->dm->flush();
         }
     }
+
+    public function deleteProduct(ProductInterface $product)
+    {
+        $this->dm->remove($product);
+        $this->dm->flush();
+    }
 }
