@@ -10,6 +10,7 @@ namespace Vespolina\ProductBundle\Document;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Component\DependencyInjection\Container;
 
+use Vespolina\Entity\Product\MerchandiseInterface;
 use Vespolina\Entity\Product\ProductInterface;
 use Vespolina\Product\Manager\ProductManager as BaseProductManager;
 /**
@@ -114,6 +115,14 @@ class ProductManager extends BaseProductManager
     protected function doGetMerchandise(array $constraints = null)
     {
 
+    }
+
+    protected function doUpdateMerchandise(MerchandiseInterface $merchandise, $andFlush = true)
+    {
+        $this->dm->persist($merchandise);
+        if ($andFlush) {
+            $this->dm->flush();
+        }
     }
 
     protected function doUpdateProduct(ProductInterface $product, $andFlush = true)

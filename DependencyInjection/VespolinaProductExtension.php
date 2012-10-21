@@ -60,6 +60,9 @@ class VespolinaProductExtension extends Extension
         if (isset($config['product'])) {
             $this->configureProduct($config['product'], $container);
         }
+        if (isset($config['merchandise'])) {
+            $this->configureMerchandise($config['merchandise'], $container);
+        }
     }
 
     protected function configureIdentifierSet(array $config, ContainerBuilder $container)
@@ -176,6 +179,13 @@ class VespolinaProductExtension extends Extension
             if (isset($formConfig['data_class'])) {
                 $container->setParameter('vespolina.product.form.model.check_product.class', $formConfig['data_class']);
             }
+        }
+    }
+
+    protected function configureMerchandise(array $config, ContainerBuilder $container)
+    {
+        if (isset($config['class'])) {
+            $container->setParameter('vespolina.product.model.merchandise.class', $config['class']);
         }
     }
 }

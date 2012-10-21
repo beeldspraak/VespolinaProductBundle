@@ -3,9 +3,8 @@
 namespace Vespolina\ProductBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Vespolina\StoreBundle\Controller\AbstractController;
 
-class DefaultController extends AbstractController
+class DefaultController
 {
     public function detailAction($slug)
     {
