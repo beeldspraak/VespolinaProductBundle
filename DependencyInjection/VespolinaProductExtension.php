@@ -34,7 +34,7 @@ class VespolinaProductExtension extends Extension
         }
         $loader->load(sprintf('%s.xml', $config['db_driver']));
         $loader->load('identifiers.xml');
-        $loader->load('features.xml');
+        $loader->load('attributes.xml');
         $loader->load('options.xml');
         $loader->load('product.xml');
         $loader->load('twig.xml');
@@ -42,8 +42,8 @@ class VespolinaProductExtension extends Extension
         if (isset($config['identifier_set'])) {
             $this->configureIdentifierSet($config['identifier_set'], $container);
         }
-        if (isset($config['feature'])) {
-            $this->configureFeature($config['feature'], $container);
+        if (isset($config['attribute'])) {
+            $this->configureAttribute($config['attribute'], $container);
         }
         if (isset($config['option_group'])) {
             $this->configureOptionGroup($config['option_group'], $container);
@@ -78,18 +78,18 @@ class VespolinaProductExtension extends Extension
         }
     }
 
-    protected function configureFeature(array $config, ContainerBuilder $container)
+    protected function configureAttribute(array $config, ContainerBuilder $container)
     {
         if (isset($config['form'])) {
             $formConfig = $config['form'];
             if (isset($formConfig['type'])) {
-                $container->setParameter('vespolina.feature.form.type.class', $formConfig['type']);
+                $container->setParameter('vespolina.attribute.form.type.class', $formConfig['type']);
             }
             if (isset($formConfig['name'])) {
-                $container->setParameter('vespolina_feature', $formConfig['name']);
+                $container->setParameter('vespolina_attribute', $formConfig['name']);
             }
             if (isset($formConfig['data_class'])) {
-                $container->setParameter('vespolina.feature.form.model.data_class.class', $formConfig['data_class']);
+                $container->setParameter('vespolina.attribute.form.model.data_class.class', $formConfig['data_class']);
             }
         }
     }

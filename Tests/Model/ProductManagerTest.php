@@ -118,16 +118,16 @@ class ProductManagerTest extends ProductTestCommon
         );
     }
 
-    public function testAddFeatureToProduct()
+    public function testAddAttributeToProduct()
     {
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
 
-        $label = $this->createFeature('label', 'Joat Music');
+        $label = $this->createAttribute('label', 'Joat Music');
 
-        $this->mgr->addFeatureToProduct($label, $this->product);
-        $this->assertEquals(1, $this->product->getFeatures()->count(), 'make sure the feature has been added');
+        $this->mgr->addAttributeToProduct($label, $this->product);
+        $this->assertEquals(1, $this->product->getAttributes()->count(), 'make sure the attribute has been added');
     }
 
     public function testGetImageManager()
@@ -144,13 +144,13 @@ class ProductManagerTest extends ProductTestCommon
         $mgr->getMediaManager();
     }
 
-    public function testSearchForProductByFeature()
+    public function testSearchForProductByAttribute()
     {
         // search by identifier should return a product set up with the specific information for that identifier
         // full results flag returns the full data set for the product
     }
 
-    public function testSearchForProductByFeatureType()
+    public function testSearchForProductByAttributeType()
     {
         // search by identifier should return a product set up with the specific information for that identifier
         // full results flag returns the full data set for the product

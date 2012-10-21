@@ -7,11 +7,11 @@
  */
 namespace Vespolina\ProductBundle\Document;
 
-use Vespolina\Entity\Product\Feature as BaseFeature;
+use Vespolina\Entity\Product\Attribute as BaseAttribute;
 /**
  * @author Richard D Shank <develop@zestic.com>
  * @author Luis E Cordova <cordoval@gmail.com>
  */
-class Feature extends BaseFeature
+class Attribute extends BaseAttribute
 {
 }

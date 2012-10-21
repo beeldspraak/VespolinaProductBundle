@@ -31,5 +31,5 @@ class CheckProduct
     /**
      * @var string
      */
-    public $features;
+    public $attributes;
 }

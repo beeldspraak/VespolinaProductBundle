@@ -14,9 +14,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 abstract class ProductTestCommon extends WebTestCase
 {
-    protected function createFeature()
+    protected function createAttribute()
     {
-        return $this->getMockForAbstractClass('Vespolina\ProductBundle\Model\Feature\Feature');
+        return $this->getMockForAbstractClass('Vespolina\ProductBundle\Model\Attribute\Attribute');
     }
 
     protected function createIdentifier($name, $code)

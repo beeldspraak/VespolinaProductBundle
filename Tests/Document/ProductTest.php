@@ -8,44 +8,44 @@
 namespace Vespolina\ProductBundle\Tests\Document;
 
 use Vespolina\ProductBundle\Tests\Fixtures\Document\Product;
-use Vespolina\ProductBundle\Document\Feature;
+use Vespolina\ProductBundle\Document\Attribute;
 use Vespolina\ProductBundle\Tests\Document\ProductTestCommon;
 /**
  * @author Richard D Shank <develop@zestic.com>
  */
 class ProductTest extends ProductTestCommon
 {
-    public function testPersistFeatures()
+    public function testPersistAttributes()
     {
 
         $product = $this->productMgr->createProduct();
 
-        $labelFeature = new Feature();
-        $labelFeature->setType('label');
-        $labelFeature->setName('Joat Music');
-        $product->addFeature($labelFeature);
+        $labelAttribute = new Attribute();
+        $labelAttribute->setType('label');
+        $labelAttribute->setName('Joat Music');
+        $product->addAttribute($labelAttribute);
 
-        $formatFeature = new Feature();
-        $formatFeature->setType('format');
-        $formatFeature->setName('vinyl');
-        $product->addFeature($formatFeature);
+        $formatAttribute = new Attribute();
+        $formatAttribute->setType('format');
+        $formatAttribute->setName('vinyl');
+        $product->addAttribute($formatAttribute);
 
-        $features = $product->getFeatures();
+        $attributes = $product->getAttributes();
         $this->productMgr->updateProduct($product);
 
         $persistedProduct = $this->productMgr->findProductById($product->getId());
-        $persistedFeatures = $persistedProduct->getFeatures();
+        $persistedAttributes = $persistedProduct->getAttributes();
 
-        $this->assertSame(count($features), count($persistedFeatures));
-        $this->assertArrayHasKey(0, $persistedFeatures);
-        $this->assertArrayHasKey(1, $persistedFeatures);
+        $this->assertSame(count($attributes), count($persistedAttributes));
+        $this->assertArrayHasKey(0, $persistedAttributes);
+        $this->assertArrayHasKey(1, $persistedAttributes);
 
-        foreach ($features as $feature) {
-            $type = $feature->getType();
-            $persistedFeature = $persistedProduct->getFeature($type);
-            $this->assertInstanceOf('Vespolina\ProductBundle\Model\Feature\FeatureInterface', $persistedFeature);
-            $this->assertSame($feature->getName(), $persistedFeature->getName());
-            $this->assertSame($feature->getSearchTerm(), $persistedFeature->getSearchTerm());
+        foreach ($attributes as $attribute) {
+            $type = $attribute->getType();
+            $persistedAttribute = $persistedProduct->getAttribute($type);
+            $this->assertInstanceOf('Vespolina\ProductBundle\Model\Attribute\AttributeInterface', $persistedAttribute);
+            $this->assertSame($attribute->getName(), $persistedAttribute->getName());
+            $this->assertSame($attribute->getSearchTerm(), $persistedAttribute->getSearchTerm());
         }
     }
 }

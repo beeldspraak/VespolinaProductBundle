@@ -3,7 +3,7 @@ Vespolina ProductBundle
 General Concepts
 ================
 
-The Product class is a container for basic product information. This includes product features, product options and
+The Product class is a container for basic product information. This includes product attributes, product options and
 identifiers.
 
 The minimal data needed for a Product is a name.
@@ -16,13 +16,13 @@ SKUs, ISBN, UPC, EAN or ASIN. It is possible for a single product to have more t
 example, Test Driven Development by Kent Beck, has the ISBN-10 0321146530, ISBN-13 978-0321146533 and ASIN 0785342146530.
 These 3 identifiers would be part of the product's primary IdentifierSet.
 
-Features
+Attributes
 --------
 
-Features are attributes of a product, using the same example, the following are features of Kent Beck's Test Driven
+Attributes specific features about a product. Using the same example, the following are attributes of Kent Beck's Test Driven
 Development
 
-   Features
+   Attributes
    
    +-----------+-----------------------------+
    |  type     | name                        |

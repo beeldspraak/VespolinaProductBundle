@@ -19,13 +19,13 @@ abstract class BaseProduct extends AbstractProduct
 {
     protected $id;
 
-    protected $features;
+    protected $attributes;
     protected $identifiers;
     protected $identifierSetClass;
 
     public function __construct($identifierSetClass)
     {
-        $this->features = array();
+        $this->attributes = array();
 
         $this->identifierSetClass = $identifierSetClass;
         $this->identifiers = new ArrayCollection();

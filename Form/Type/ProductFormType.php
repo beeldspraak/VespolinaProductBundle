@@ -9,7 +9,7 @@ namespace Vespolina\ProductBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Vespolina\ProductBundle\Form\Type\FeatureFormType;
+use Vespolina\ProductBundle\Form\Type\AttributeFormType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
@@ -30,13 +30,13 @@ class ProductFormType extends AbstractType
                 'by_reference'   => false,
                 'prototype_name' => 'group',
             ))
-            ->add('features', 'collection', array(
+            ->add('attributes', 'collection', array(
                 'required' => false,
-                'type' => new FeatureFormType(),
+                'type' => new AttributeFormType(),
                 'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-                'prototype_name' => 'features',
+                'prototype_name' => 'attributes',
            ))
         ;
     }

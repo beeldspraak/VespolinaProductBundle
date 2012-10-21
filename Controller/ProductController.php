@@ -160,7 +160,7 @@ class ProductController extends ContainerAware
     protected function getProductFormOptions()
     {
         $pm = $this->container->get('vespolina.product_manager');
-        $options['features']['code']['label'] = $pm->getPrimaryIdentifierLabel();
+        $options['attributes']['code']['label'] = $pm->getPrimaryIdentifierLabel();
         return $options;
     }
 }

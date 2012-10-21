@@ -11,7 +11,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class FeatureFormType extends AbstractType
+class AttributeFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -28,12 +28,12 @@ class FeatureFormType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Vespolina\ProductBundle\Document\Feature',
+            'data_class' => 'Vespolina\ProductBundle\Document\Attribute',
         ));
     }
 
     function getName()
     {
-        return 'vespolina_product_feature';
+        return 'vespolina_product_attribute';
     }
 }

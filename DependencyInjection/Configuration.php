@@ -36,7 +36,7 @@ class Configuration implements ConfigurationInterface
         $this->addOptionSection($rootNode);
         $this->addProductManagerSection($rootNode);
         $this->addProductSection($rootNode);
-        $this->addFeatureSection($rootNode);
+        $this->addAttributeSection($rootNode);
 
         return $treeBuilder;
     }
@@ -161,11 +161,11 @@ class Configuration implements ConfigurationInterface
         ;
     }
 
-    private function addFeatureSection(ArrayNodeDefinition $node)
+    private function addAttributeSection(ArrayNodeDefinition $node)
     {
         $node
             ->children()
-                ->arrayNode('feature')
+                ->arrayNode('attribute')
                     ->children()
                         ->arrayNode('form')
                             ->addDefaultsIfNotSet()

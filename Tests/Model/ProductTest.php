@@ -59,25 +59,25 @@ class ProductTest extends ProductTestCommon
         $this->assertTrue($options->contains($ogColor), 'the options should be stored in the collection');
     }
 
-    public function testProductFeatures()
+    public function testProductAttributes()
     {
         $product = $this->createProduct();
 
-        $productFeatures = new \ReflectionProperty('Vespolina\ProductBundle\Model\Product', 'features');
-        $productFeatures->setAccessible(true);
+        $productAttributes = new \ReflectionProperty('Vespolina\ProductBundle\Model\Product', 'attributes');
+        $productAttributes->setAccessible(true);
 
-        $labelFeature = $this->getMock('Vespolina\ProductBundle\Model\Feature\Feature', array('getType', 'getSearchTerm'));
-        $labelFeature->expects($this->any())
+        $labelAttribute = $this->getMock('Vespolina\ProductBundle\Model\Attribute\Attribute', array('getType', 'getSearchTerm'));
+        $labelAttribute->expects($this->any())
                  ->method('getType')
                  ->will($this->returnValue('LABEL'));
-        $labelFeature->expects($this->any())
+        $labelAttribute->expects($this->any())
                  ->method('getSearchTerm')
                  ->will($this->returnValue('Joat Music'));
 
-        $product->addFeature($labelFeature);
-        $features = $productFeatures->getValue($product);
-        $this->assertArrayHasKey('label', $features, 'top level key is the type in lower case');
-        $this->assertArrayHasKey('joat music', $features['label'], 'top level key is the search term in lower case');
+        $product->addAttribute($labelAttribute);
+        $attributes = $productAttributes->getValue($product);
+        $this->assertArrayHasKey('label', $attributes, 'top level key is the type in lower case');
+        $this->assertArrayHasKey('joat music', $attributes['label'], 'top level key is the search term in lower case');
     }
 
     public function testProductIdentities()

@@ -7,3 +7,4 @@ This changelog references the relevant changes between minor versions.
 
  * ProductInterface and FeatureInterface come from VespolinaCore
  * Change file_name in Asset, AssetInterface and AssetManager to fileName
+ * Feature and FeatureInterface are now called Attribute and AttributeInterface

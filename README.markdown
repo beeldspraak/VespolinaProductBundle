@@ -6,7 +6,7 @@ It provides functionality for products on an e-commerce ecosystem.
 
 Features include:
 
-- features, identifiers, etc
+- attributes, identifiers, etc
 
 
 **Caution:** This bundle is developed in sync with [vespolina's sandbox repository](https://github.com/vespolina/vespolina_sandbox)

@@ -18,7 +18,7 @@
 
         <field name="updatedAt" fieldName="updatedAt" type="date" />
 
-        <refence-many
+        <reference-many
             target-document="Vespolina\ProductBundle\Document\Asset"
             field="assets"
             simple="true"
