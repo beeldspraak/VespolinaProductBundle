@@ -22,14 +22,14 @@ class ProductManager extends BaseProductManager
     protected $merchandiseRepo;
     protected $productRepo;
 
-    public function __construct(DocumentManager $dm, $productClass, $merchandiseClass, $identifiers, $identifierSetClass)
+    public function __construct(DocumentManager $dm, $productClass, $merchandiseClass, $identifiers, $identifierSetClass, $attributeClass)
     {
         $this->dm = $dm;
         $this->productClass = $productClass;
         $this->merchandiseRepo = $this->dm->getRepository($merchandiseClass);
         $this->productRepo = $this->dm->getRepository($productClass);
 
-        parent::__construct($identifiers, $identifierSetClass, $merchandiseClass);
+        parent::__construct($identifiers, $identifierSetClass, $merchandiseClass, $attributeClass);
     }
 
     /**
