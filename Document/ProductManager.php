@@ -125,6 +125,20 @@ class ProductManager extends BaseProductManager
         }
     }
 
+    /**
+     * Removes an item from MongoDB
+     *
+     * @param \Vespolina\Entity\Product\ProductInterface $object
+     * @param bool $andFlush
+     */
+    public function doDeleteProduct(ProductInterface $object, $andFlush = true)
+    {
+        $this->dm->remove($object);
+        if ($andFlush) {
+            $this->dm->flush();
+        }
+    }
+
     protected function doUpdateProduct(ProductInterface $product, $andFlush = true)
     {
         $this->dm->persist($product);
