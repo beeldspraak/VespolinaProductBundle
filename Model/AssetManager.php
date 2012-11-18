@@ -8,13 +8,12 @@
 namespace Vespolina\ProductBundle\Model;
 
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
-use Vespolina\Entity\ProductInterface;
+use Vespolina\Entity\Product\ProductInterface;
 /**
  * @author Myke Hines <myke@webhines.com>
  */
 class AssetManager
 {
-    private $dm;
     protected $assetModelClass;
 
     /**

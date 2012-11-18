@@ -21,7 +21,7 @@ class AssetManager extends BaseAssetManager
     protected $assetRepo;
     protected $assetModelClass;
 
-    public function __construct(DocumentManager $dm, $assetModelClass )
+    public function __construct(DocumentManager $dm, $assetModelClass)
     {
         $this->dm = $dm;
         $this->assetRepo = $this->dm->getRepository($assetModelClass);
