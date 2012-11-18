@@ -59,7 +59,7 @@ class AssetManager extends BaseAssetManager
     /**
      * @inheritdoc
      */
-    public function updateasset(assetInterface $asset, $andFlush = true)
+    public function updateAsset(AssetInterface $asset, $andFlush = true)
     {
         $this->dm->persist($asset);
         if ($andFlush) {
