@@ -7,9 +7,6 @@
  */
 namespace Vespolina\ProductBundle\Document;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-
 use Vespolina\Entity\Asset\Asset as AbstractAsset;
 use Vespolina\Entity\Asset\AssetInterface;
 /**
@@ -18,5 +15,4 @@ use Vespolina\Entity\Asset\AssetInterface;
 class Asset extends AbstractAsset implements AssetInterface
 {
     protected $id;
-
 }
