@@ -10,7 +10,7 @@ namespace Vespolina\ProductBundle\Document;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Component\DependencyInjection\Container;
 
-use Vespolina\ProductBundle\Model\AssetInterface;
+use Vespolina\Entity\Asset\AssetInterface;
 use Vespolina\ProductBundle\Model\AssetManager as BaseAssetManager;
 /**
  * @author Myke Hines <myke@webhines.com>
