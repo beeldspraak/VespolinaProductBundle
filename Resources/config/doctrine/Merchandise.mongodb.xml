@@ -11,14 +11,14 @@
         <field name="createdAt" fieldName="createdAt" type="date" />
         <field name="updatedAt" fieldName="updatedAt" type="date" />
 
-        <embed-many fieldName="assets"
+        <reference-many fieldName="assets"
                     field="assets"
                     target-document="Vespolina\ProductBundle\Document\Asset"
                 />
 
         <lifecycle-callbacks>
-            <lifecycle-callback type="prePersist" method="incrementCreatedAt" />
-            <lifecycle-callback type="preUpdate" method="incrementUpdatedAt" />
+            <lifecycle-callback type="prePersist" method="autoSetCreatedAt" />
+            <lifecycle-callback type="preUpdate" method="autoSetUpdatedAt" />
         </lifecycle-callbacks>
 
     </document>
