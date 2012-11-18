@@ -18,18 +18,38 @@ use Vespolina\Product\Manager\ProductManager as BaseProductManager;
  */
 class ProductManager extends BaseProductManager
 {
+    protected $assetManager;
     protected $dm;
     protected $merchandiseRepo;
+    protected $productClass;
     protected $productRepo;
 
-    public function __construct(DocumentManager $dm, $productClass, $merchandiseClass, $identifiers, $identifierSetClass, $attributeClass)
+    public function __construct(DocumentManager $dm, $assetManager, $productClass, $merchandiseClass, $identifiers, $identifierSetClass, $attributeClass)
     {
+        $this->assetManager = $assetManager;
         $this->dm = $dm;
         $this->productClass = $productClass;
         $this->merchandiseRepo = $this->dm->getRepository($merchandiseClass);
         $this->productRepo = $this->dm->getRepository($productClass);
 
         parent::__construct($identifiers, $identifierSetClass, $merchandiseClass, $attributeClass);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function findMerchandiseBySlug($slug)
+    {
+        if ($merchandise = $this->merchandiseRepo->findOneBy(array('slug' => $slug))) {
+
+            $rp = new \ReflectionProperty($merchandise, 'identifierSetClass');
+            $rp->setAccessible(true);
+            $rp->setValue($merchandise, $this->identifierSetClass);
+
+            return $merchandise;
+        }
+
+        return null;
     }
 
     /**

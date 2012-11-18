@@ -24,6 +24,7 @@
 
         <service id="vespolina.product.product_manager" class="%vespolina.product.product_manager.class%">
             <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
+            <argument type="service" id="vespolina.product.asset_manager" />
             <argument>%vespolina.product.model.product.class%</argument>
             <argument>%vespolina.product.model.merchandise.class%</argument>
             <argument>%vespolina.product.product_manager.identifiers%</argument>
