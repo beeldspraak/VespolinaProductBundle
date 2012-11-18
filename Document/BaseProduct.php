@@ -19,9 +19,6 @@ abstract class BaseProduct extends AbstractProduct
 {
     protected $id;
 
-    protected $createdAt;
-    protected $attributes;
-    protected $assets;
     protected $identifiers;
     protected $identifierSetClass;
 
