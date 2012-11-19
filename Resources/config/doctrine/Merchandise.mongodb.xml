@@ -8,12 +8,19 @@
         <field name="id" id="true" />
 
         <field name="active" type="boolean" />
+        <field name="description" fieldName="description" type="string" />
+        <field name="name" fieldName="name" type="string" />
+        <field name="pricing" fieldName="pricing" type="hash" />
+        <field name="slug" fieldName="slug" type="string" />
+        <field name="type" fieldName="type" type="int" />
+
         <field name="createdAt" fieldName="createdAt" type="date" />
         <field name="updatedAt" fieldName="updatedAt" type="date" />
 
-        <reference-many fieldName="assets"
-                    field="assets"
-                    target-document="Vespolina\ProductBundle\Document\Asset"
+        <reference-many
+                target-document="Vespolina\ProductBundle\Document\Asset"
+                field="assets"
+                simple="true"
                 />
 
         <lifecycle-callbacks>

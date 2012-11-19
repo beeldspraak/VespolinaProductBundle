@@ -8,7 +8,7 @@
 namespace Vespolina\ProductBundle\Model;
 
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
-use Vespolina\Entity\Product\ProductInterface;
+use Vespolina\Entity\Product\BaseProductInterface as ProductInterface;
 /**
  * @author Myke Hines <myke@webhines.com>
  */

@@ -15,4 +15,24 @@ use Vespolina\Entity\Asset\AssetInterface;
 class Asset extends AbstractAsset implements AssetInterface
 {
     protected $id;
+    protected $product;
+
+    /**
+     * Set the asset product
+     *
+     * @param $product
+     */
+    function setProduct($product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * Get the asset product.
+     * @return product
+     */
+    function getProduct()
+    {
+        return $this->product;
+    }
 }

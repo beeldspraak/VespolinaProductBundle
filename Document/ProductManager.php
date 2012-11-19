@@ -42,9 +42,9 @@ class ProductManager extends BaseProductManager
     {
         if ($merchandise = $this->merchandiseRepo->findOneBy(array('slug' => $slug))) {
 
-            $rp = new \ReflectionProperty($merchandise, 'identifierSetClass');
-            $rp->setAccessible(true);
-            $rp->setValue($merchandise, $this->identifierSetClass);
+ //           $rp = new \ReflectionProperty($merchandise, 'identifierSetClass');
+ //           $rp->setAccessible(true);
+ //           $rp->setValue($merchandise, $this->identifierSetClass);
 
             return $merchandise;
         }

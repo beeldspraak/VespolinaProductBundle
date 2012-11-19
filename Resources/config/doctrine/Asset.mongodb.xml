@@ -14,5 +14,10 @@
         <field name="width" fieldName="width" type="string" />
         <field name="mime" fieldName="mime" type="string" />
         <field name="type" fieldName="type" type="string" />
+
+        <reference-one
+                field="product"
+                simple="true"
+                />
     </document>
 </doctrine-mongo-mapping>

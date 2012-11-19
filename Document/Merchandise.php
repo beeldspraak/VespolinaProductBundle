@@ -8,5 +8,8 @@ use Vespolina\Entity\Product\Merchandise as AbstractMerchandise;
 
 class Merchandise extends AbstractMerchandise
 {
-
+    public function setArrayPricing($pricing)
+    {
+        $this->pricing = $pricing;
+    }
 }
