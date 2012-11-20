@@ -17,7 +17,6 @@
 
         <reference-one
                 field="product"
-                simple="true"
                 />
     </document>
 </doctrine-mongo-mapping>

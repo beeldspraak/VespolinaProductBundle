@@ -21,7 +21,7 @@ class AssetManager extends BaseAssetManager
     protected $assetRepo;
     protected $assetModelClass;
 
-    public function __construct(DocumentManager $dm, $assetModelClass)
+    public function __construct(DocumentManager $dm, $assetModelClass )
     {
         $this->dm = $dm;
         $this->assetRepo = $this->dm->getRepository($assetModelClass);
@@ -42,6 +42,7 @@ class AssetManager extends BaseAssetManager
      */
     public function findAssetsByType($product, $type)
     {
+
         $assets = $this->assetRepo->findBy( array('type' => $type, 'product' => new \MongoId($product->getId() )));
         return $assets;
     }
@@ -52,6 +53,7 @@ class AssetManager extends BaseAssetManager
     public function findAssetByType($product, $type)
     {
         $asset = $this->assetRepo->findOneBy( array('type' => $type, 'product' => new \MongoId($product->getId() )));
+
         return $asset;
     }
 
@@ -59,7 +61,7 @@ class AssetManager extends BaseAssetManager
     /**
      * @inheritdoc
      */
-    public function updateAsset(AssetInterface $asset, $andFlush = true)
+    public function updateAsset(assetInterface $asset, $andFlush = true)
     {
         $this->dm->persist($asset);
         if ($andFlush) {

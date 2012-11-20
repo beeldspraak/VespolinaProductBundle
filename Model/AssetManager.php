@@ -14,6 +14,7 @@ use Vespolina\Entity\Product\BaseProductInterface as ProductInterface;
  */
 class AssetManager
 {
+    private $dm;
     protected $assetModelClass;
 
     /**
