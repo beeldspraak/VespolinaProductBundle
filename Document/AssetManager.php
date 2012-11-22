@@ -52,8 +52,13 @@ class AssetManager extends BaseAssetManager
      */
     public function findAssetByType($product, $type)
     {
-        $asset = $this->assetRepo->findOneBy( array('type' => $type, 'product' => new \MongoId($product->getId() )));
+        $qb = $this->dm->createQueryBuilder($this->assetModelClass);
 
+        $asset =  $qb->select()
+            ->field('product')->references($product)
+            ->field('type')->equals($type)
+            ->getQuery()
+            ->getSingleResult();
         return $asset;
     }
 
