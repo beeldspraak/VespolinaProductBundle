@@ -18,11 +18,16 @@
 
         <field name="updatedAt" fieldName="updatedAt" type="date" />
 
-        <reference-many
-            target-document="Vespolina\ProductBundle\Document\Asset"
-            field="assets"
-            simple="true"
-        />
+        <reference-many target-document="Vespolina\ProductBundle\Document\Asset" field="media">
+            <cascade>
+                <persist/>
+            </cascade>
+        </reference-many>
+
+        <embed-many
+                target-document="Vespolina\ProductBundle\Document\Attribute"
+                field="attributes"
+                />
 
         <lifecycle-callbacks>
             <lifecycle-callback type="prePersist" method="autoSetCreatedAt" />

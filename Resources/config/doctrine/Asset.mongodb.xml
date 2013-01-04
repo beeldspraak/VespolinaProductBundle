@@ -15,8 +15,5 @@
         <field name="mime" fieldName="mime" type="string" />
         <field name="type" fieldName="type" type="string" />
 
-        <reference-one
-                field="product"
-                />
     </document>
 </doctrine-mongo-mapping>
